@@ -1,0 +1,47 @@
+<mvc:View xmlns="sap.m" xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" 
+	xmlns:form="sap.ui.layout.form" 
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="ebs.controller.Create">
+	<semantic:FullscreenPage id="__page1" title="{i18n>newOnCallPageTitle}">
+		<semantic:content><VBox class="sapUiSmallMargin" id="__vbox0">
+				<form:SimpleForm id="SimpleFormToolbar" editable="true" 
+				layout="ResponsiveGridLayout" title="New On Call Entry">
+					<form:content>
+						<!--On Call Date-->
+						<Label text="On Call Date" design="Bold"/>
+						<DateRangeSelection id="onCallDate" placeholder="Enter Date ..." 
+							required="true" valueFormat="yyyy-MM-ddTHH:MM:SS" 
+							dateValue="{onCallDate}" 
+							secondDateValue="{onCallEndDate}" 
+							displayFormat="medium" 
+							change="handleDateChange"/>
+
+						<!--Team ComboBox-->
+						<Label text="Team" design="Bold"/>
+						<ComboBox id="teamComboBox" items="{localModelteamIds>/teamIds}" selectionChange="onCbSelectionChange" required="true" placeholder="Select team Name">
+							<core:ListItem text="{localModelteamIds>NameText}" key="{localModelteamIds>teamId}" id="teamIdsListItem"/>
+						</ComboBox>
+
+						<!--Team member ComboBox-->
+						<Label text="Team member" design="Bold"/>
+						<ComboBox id="userNamesComboBox" items="{ path: '/VHJhedIDSet' }" selectionChange="onCbSelectionChange" required="true" placeholder="Select Team member">
+							<core:ListItem text="{NameText}" key="{teamMemberId}" id="userNamesListItem"/>
+						</ComboBox>
+					</form:content>
+				</form:SimpleForm>
+			<items/>
+			</VBox>
+		</semantic:content>
+		<semantic:saveAction>
+			<semantic:SaveAction id="saveButton" press="onSave"/>
+		</semantic:saveAction>
+		<semantic:cancelAction>
+			<semantic:CancelAction id="cancelButton" press="onCancel"/>
+		</semantic:cancelAction>
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress" tooltip="Feedback"/>
+		</semantic:sendEmailAction>
+		<semantic:sendMessageAction>
+		</semantic:sendMessageAction>
+	</semantic:FullscreenPage>
+</mvc:View>

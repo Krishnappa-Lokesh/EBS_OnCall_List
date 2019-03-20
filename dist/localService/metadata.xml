@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="Z_ON_CALL_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="OnCallList" sap:content-version="1">
+				<Key>
+					<PropertyRef Name="keyField"/>
+				</Key>
+				<Property Name="tmEmailAdrs" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
+				<Property Name="keyField" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Key field" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/>
+				<Property Name="onCallDate" Type="Edm.DateTime" Precision="0" sap:label="On-Call from Date"/>
+				<Property Name="onCallEndDate" Type="Edm.DateTime" Precision="0" sap:label="On-Call from Date"/>
+				<Property Name="pagerNumber" Type="Edm.String" MaxLength="12" sap:label="Contact No"/>
+				<Property Name="teamMemberId" Type="Edm.String" MaxLength="12" sap:label="User"/>
+				<Property Name="tmTelNumber" Type="Edm.String" MaxLength="30" sap:label="Telephone"/>
+				<Property Name="NameText" Type="Edm.String" MaxLength="80" sap:label="Complete name"/>
+				<Property Name="mgrNameText" Type="Edm.String" MaxLength="80" sap:label="Complete name"/>
+				<Property Name="mgrEmailAdrs" Type="Edm.String" MaxLength="241" sap:label="E-Mail Address"/>
+				<Property Name="teamId" Type="Edm.String" MaxLength="2" sap:label="Team on call"/>
+				<Property Name="mgrTelNumber" Type="Edm.String" MaxLength="30" sap:label="Telephone"/>
+				<Property Name="hlpDskNumber" Type="Edm.String" MaxLength="30" sap:label="Telephone" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" />
+			</EntityType>
+			<EntityType Name="VHJhedID" sap:content-version="1">
+				<Key><PropertyRef Name="teamMemberId"/></Key><Property Name="teamMemberId" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="User" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="NameText" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Complete name" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityContainer Name="Z_ON_CALL_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="OnCallListSet" EntityType="Z_ON_CALL_SRV.OnCallList" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="VHJhedIDSet" EntityType="Z_ON_CALL_SRV.VHJhedID" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:content-version="1"/></EntityContainer><atom:link rel="self" href="http://d291xgw.hosts.jhmi.edu:8000/sap/opu/odata/sap/Z_ON_CALL_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version" href="http://d291xgw.hosts.jhmi.edu:8000/sap/opu/odata/sap/Z_ON_CALL_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/>
+		</Schema>
+		<Schema Namespace="ZMINS_ADDRESS_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="address" sap:content-version="1">
+				<Key><PropertyRef Name="Addrnumber"/></Key><Property Name="Addrnumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Address number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Title" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Name" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Name2" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Name 2" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="NameCo" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="c/o" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Street" Type="Edm.String" Nullable="false" MaxLength="60" sap:label="Street" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Building" Type="Edm.String" Nullable="false" MaxLength="20" sap:label="Building Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Floor" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Floor" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Roomnumber" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Room Number" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="City1" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="City" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Region" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Region" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="PostCode1" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Postal Code" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="Country" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Country" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="tmTelNumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Telephone" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="TelExtens" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Extension" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false" sap:filterable="false"/></EntityType>
+			<EntityContainer Name="ZMINS_ADDRESS_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="addressSet" EntityType="ZMINS_ADDRESS_SRV.address" sap:creatable="false" sap:updatable="false" sap:deletable="false"
+				sap:pageable="false" sap:addressable="false" sap:content-version="1"/></EntityContainer><atom:link rel="self" href="http://d291xgw.hosts.jhmi.edu:8000/sap/opu/odata/sap/ZMINS_ADDRESS_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link rel="latest-version" href="http://d291xgw.hosts.jhmi.edu:8000/sap/opu/odata/sap/ZMINS_ADDRESS_SRV/$metadata"
+				xmlns:atom="http://www.w3.org/2005/Atom"/>
+		</Schema> 
+	</edmx:DataServices>
+</edmx:Edmx>

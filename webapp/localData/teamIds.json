@@ -1,0 +1,21 @@
+{
+	"teamIds": [{
+		"teamId": "PI",
+		"NameText": "PI On Call"
+	}, {
+		"teamId": "FI",
+		"NameText": "SC/FI Developer on Call"
+	}, {
+		"teamId": "SC",
+		"NameText": "Supply Chain Functional Tean on Call"
+	}, {
+		"teamId": "HR",
+		"NameText": "HR On Call"
+	}, {
+		"teamId": "SK",
+		"NameText": "Security on Call"
+	}, {
+		"teamId": "BC",
+		"NameText": "Basis On Call"
+	}]
+}
